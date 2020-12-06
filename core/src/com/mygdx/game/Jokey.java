@@ -14,7 +14,7 @@ public class Jokey {
     private Sprite sprite;
     private MyGdxGame game;
     private int move = 0;
-    private float x, y;
+    public float x, y;
     private int step = 0;
     private Texture texture;
     private int w, h;
@@ -61,6 +61,10 @@ public class Jokey {
         }else if(speed > 2){
             speed -= 0.5;
         }
+    }
+
+    void vanish(){
+        sprite.setRegion(new TextureRegion(texture, step * w, h, w, h));
     }
 
     void botSpeed(){

@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,6 +20,7 @@ public class MyGdxGame extends ApplicationAdapter {
     private Texture background;
     private Map<String, Texture> textures = new HashMap<String, Texture>();
     private List<Jokey> jokeys = new ArrayList<Jokey>();
+    private Music music;
 
     @Override
     public void create() {
@@ -38,6 +40,8 @@ public class MyGdxGame extends ApplicationAdapter {
         jokeys.add(new Jokey(80, (800 - 630), false, textures.get("actorhorse3"), this));
         jokeys.add(new Jokey(80, (800 - 735), false, textures.get("actorhorse2"), this));
 
+        music = Gdx.audio.newMusic(Gdx.files.internal("look-at-my-horse.wav"));
+        music.play();
     }
 
     @Override
@@ -51,17 +55,36 @@ public class MyGdxGame extends ApplicationAdapter {
         }
         execute();
         batch.end();
-        sleep(40);
+        sleep(20);
     }
 
     private void execute() {
         for (Jokey jokey : jokeys) {
+            end(jokey);
             jokey.run();
             if (jokey.isPlayer) {
                 jokey.speed();
-            }else{
+            } else {
                 jokey.botSpeed();
             }
+        }
+    }
+
+    private void end(Jokey jokey) {
+        if(jokey.x >= 1800){
+            setScreen(jokey);
+        }
+    }
+
+    private void setScreen(Jokey jokey){
+        for(Jokey j : jokeys){
+            j.vanish();
+        }
+
+        if(jokey.isPlayer){
+            background = new Texture("win.png");
+        }else{
+            background = new Texture("lose.png");
         }
     }
 
