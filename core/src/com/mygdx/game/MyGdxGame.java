@@ -19,7 +19,6 @@ public class MyGdxGame extends ApplicationAdapter {
     private Texture background;
     private Map<String, Texture> textures = new HashMap<String, Texture>();
     private List<Jokey> jokeys = new ArrayList<Jokey>();
-    private Jokey avatar;
 
     @Override
     public void create() {
@@ -60,6 +59,8 @@ public class MyGdxGame extends ApplicationAdapter {
             jokey.run();
             if (jokey.isPlayer) {
                 jokey.speed();
+            }else{
+                jokey.botSpeed();
             }
         }
     }

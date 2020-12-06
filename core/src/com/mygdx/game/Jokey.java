@@ -6,8 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.util.Random;
+
 public class Jokey {
-    private int speed = 2;
+    private double speed = 1;
     public boolean isPlayer;
     private Sprite sprite;
     private MyGdxGame game;
@@ -18,6 +20,7 @@ public class Jokey {
     private int w, h;
     private static final int animationMax = 4;
     private int animation;
+    private Random rand = new Random();
 
     Jokey(float x, float y, boolean isPlayer, Texture texture, MyGdxGame game) {
         this.game = game;
@@ -52,8 +55,16 @@ public class Jokey {
 
     void speed() {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            speed += 1;
+            if(this.speed <= 7){
+                this.speed += 1;
+            }
+        }else if(speed > 2){
+            speed -= 0.5;
         }
+    }
+
+    void botSpeed(){
+        this.speed = rand.nextInt(8) + 1;
     }
 
     void draw() {

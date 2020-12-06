@@ -8,9 +8,9 @@
 * [x] o cavalo que precisa se mexer
 * [x] os outros cavalos sempre devem se mover
 * [x] habilitar o click como oq move o cavalo para frente
-* [ ] a velocidade do cavalo deve sempre estar regredindo, mas nunca menos que 0.5
-* [ ] os outros cavalos devem se mover numa velocidade aleatória
-* [ ] o jogador ganha quando tirar todos os outros cavalos da tela
+* [x] a velocidade do cavalo deve sempre estar regredindo, mas nunca menos que 0.5
+* [x] os outros cavalos devem se mover numa velocidade aleatória
+* [ ] o jogador ganha quando ganha
 
 POSIÇÕES:
 
