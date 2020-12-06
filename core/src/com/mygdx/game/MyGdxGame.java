@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
+	float x, y;
 	int w, h;
 
 	private Texture background;
@@ -33,10 +34,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		textures.put("actorhorse3", new Texture("horse-red.png"));
 		textures.put("actorhorse2", new Texture("horse-pink.png"));
 
-		jokeys.add(new Jokey(100, 440, textures.get("actorPlayer"), this));
-		jokeys.add(new Jokey(300, 540, textures.get("actorhorse1"), this));
-		jokeys.add(new Jokey(600, 640, textures.get("actorhorse3"), this));
-		jokeys.add(new Jokey(1000, 300, textures.get("actorhorse2"), this));
+		jokeys.add(new Jokey(80, (800-440), textures.get("actorPlayer"), this));
+		jokeys.add(new Jokey(80, (800-530), textures.get("actorhorse1"), this));
+		jokeys.add(new Jokey(80, (800-630), textures.get("actorhorse3"), this));
+		jokeys.add(new Jokey(80, (800-735), textures.get("actorhorse2"), this));
 
 	}
 
@@ -51,9 +52,23 @@ public class MyGdxGame extends ApplicationAdapter {
 			jokey.draw();
 		}
 
+		execute();
 		batch.end();
+		sleep(40);
 	}
-	
+
+	private void execute() {
+		for (Jokey jokey : jokeys) jokey.run();
+	}
+
+	private void sleep(int timer) {
+		try {
+			Thread.sleep(timer);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public void dispose () {
 		batch.dispose();

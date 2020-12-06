@@ -5,14 +5,17 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Jokey {
-    private int speed;
+    private int speed = 2;
     private boolean isPlayer;
     private Sprite sprite;
     private MyGdxGame game;
     private int move = 0;
     private float x, y;
+    private int step = 0;
     private Texture texture;
     private int w, h;
+    private static final int animationMax = 4;
+    private int animation;
 
     Jokey(float x, float y, Texture texture, MyGdxGame game) {
         this.game = game;
@@ -24,14 +27,30 @@ public class Jokey {
         sprite = new Sprite(new TextureRegion(texture, 0, 0, w, h));
     }
 
-    void run() { // metodo pra fazer os cavalos correrem automaticamente
+    private void updateAnimation() {
+        animation++;
+        if (animation > animationMax) {
+            animation = 0;
+            step++;
+            if (step >= 7) step = 0;
+        }
+    }
 
+    private boolean outOfScreen() {
+        float px = x - game.x;
+        float py = y - game.y;
+        return (px > game.w) || (px + w < 0) || (py > game.h) || (py + h < 0);
+    }
+
+    void run() {
+        x += speed;
+        updateAnimation();
     }
 
     void draw() {
-        //sprite.setRegion(new TextureRegion(texture, move * w, h, w, h));
-        //sprite.setPosition(x, y);
-
+        if (outOfScreen()) return;
+        sprite.setRegion(new TextureRegion(texture, step * w, 0, w, h));
+        sprite.setPosition(x - game.x, y - game.y);
         sprite.draw(game.batch);
     }
 }
