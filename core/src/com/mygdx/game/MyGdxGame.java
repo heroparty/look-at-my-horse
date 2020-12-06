@@ -28,9 +28,9 @@ public class MyGdxGame extends ApplicationAdapter {
 		horse3 = new Texture("horse-red.png");
 
 		actorPlayer = new Jokey(20, 92, player, this);
-		actorHorse1 = new Jokey(20, 92, horse1, this);
-		actorHorse2 = new Jokey(20, 92, horse2, this);
-		actorHorse3 = new Jokey(20, 92, horse3, this);
+		actorHorse1 = new Jokey(20, 108, horse1, this);
+		actorHorse2 = new Jokey(20, 124, horse2, this);
+		actorHorse3 = new Jokey(20, 140, horse3, this);
 	}
 
 	@Override

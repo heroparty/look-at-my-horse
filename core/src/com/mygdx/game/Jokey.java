@@ -9,7 +9,7 @@ public class Jokey {
     private boolean isPlayer;
     private Sprite sprite;
     private MyGdxGame game;
-    private int move = 0;
+    private int move = 1;
     private float x, y;
     private Texture texture;
     private int w, h;
@@ -19,9 +19,9 @@ public class Jokey {
         this.texture = texture;
         this.x = x;
         this.y = y;
-        w = 400 / 7;
+        w = 2800 / 7;
         h = 250;
-        sprite = new Sprite(new TextureRegion(texture, 0, 0, w, 0));
+        sprite = new Sprite(new TextureRegion(texture, 0, 0, w, h));
     }
 
     void run() { // metodo pra fazer os cavalos correrem automaticamente
@@ -29,9 +29,9 @@ public class Jokey {
     }
 
     void draw() {
-        sprite.setRegion(new TextureRegion(texture, move * w, h, w, h));
-        System.out.println("PRINT " + x + " " + h);
-        sprite.setPosition(x, y);
+        //sprite.setRegion(new TextureRegion(texture, move * w, h, w, h));
+        //sprite.setPosition(x, y);
+
         sprite.draw(game.batch);
     }
 }
