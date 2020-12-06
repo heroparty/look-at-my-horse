@@ -2,7 +2,8 @@
 
 * [x] fazer a lista, fon
 * [x] o fundo precisa ser um só(?)
-* [ ] colocar os cavalos na posição certa
+* [x] colocar os cavalos na posição certa
+* [ ] formatar os tamanhos das imagens para caberem na tela
 * [ ] o cavalo que precisa se mexer
 * [ ] habilitar o click como oq move o cavalo para frente
 * [ ] a velocidade do cavalo deve sempre estar regredindo, mas nunca menos que 0.5
