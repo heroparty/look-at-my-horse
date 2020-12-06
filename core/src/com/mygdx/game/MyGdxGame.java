@@ -6,31 +6,38 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
+	int w, h;
+
 	private Texture background;
-	private Texture player;
-	private Texture horse1;
-	private Texture horse2;
-	private Texture horse3;
-	private Jokey actorPlayer;
-	private Jokey actorHorse1;
-	private Jokey actorHorse2;
-	private Jokey actorHorse3;
+	private Map<String, Texture> textures = new HashMap<String, Texture>();
+	private List<Jokey> jokeys = new ArrayList<Jokey>();
+	private Jokey avatar;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		background = new Texture("background.png");
-		player = new Texture("horse-blue.png");
-		horse1 = new Texture("horse-green.png");
-		horse2 = new Texture("horse-pink.png");
-		horse3 = new Texture("horse-red.png");
 
-		actorPlayer = new Jokey(20, 92, player, this);
-		actorHorse1 = new Jokey(20, 200, horse1, this);
-		actorHorse2 = new Jokey(20, 124, horse2, this);
-		actorHorse3 = new Jokey(20, 140, horse3, this);
+		w = Gdx.graphics.getWidth();
+		h = Gdx.graphics.getHeight();
+		background = new Texture("background.png");
+
+		textures.put("actorPlayer", new Texture("horse-blue.png"));
+		textures.put("actorhorse1", new Texture("horse-green.png"));
+		textures.put("actorhorse3", new Texture("horse-red.png"));
+		textures.put("actorhorse2", new Texture("horse-pink.png"));
+
+		jokeys.add(new Jokey(100, 440, textures.get("actorPlayer"), this));
+		jokeys.add(new Jokey(300, 540, textures.get("actorhorse1"), this));
+		jokeys.add(new Jokey(600, 640, textures.get("actorhorse3"), this));
+		jokeys.add(new Jokey(1000, 300, textures.get("actorhorse2"), this));
+
 	}
 
 	@Override
@@ -39,10 +46,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(background, 0, 0);
-		actorPlayer.draw();
-		actorHorse1.draw();
-		actorHorse2.draw();
-		actorHorse3.draw();
+
+		for(Jokey jokey : jokeys){
+			jokey.draw();
+		}
 
 		batch.end();
 	}

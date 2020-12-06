@@ -2,7 +2,8 @@
 
 * [x] fazer a lista, fon
 * [x] o fundo precisa ser um só(?)
-* [x] colocar os cavalos na posição certa
+* [x] fazer cavalos aparecer
+* [ ] colocar os cavalos na posição certa
 * [ ] formatar os tamanhos das imagens para caberem na tela
 * [ ] o cavalo que precisa se mexer
 * [ ] habilitar o click como oq move o cavalo para frente
@@ -15,7 +16,7 @@
 
 POSIÇÕES:
 
-player: 20x, 92y;
-horse1: 20x, 108y;
-horse2: 20x, 124y;
-horse3: 20x, 140y;
+player: 80, 440;
+horse1: 80, 510;
+horse2: 80, 580;
+horse3: 80, 650;

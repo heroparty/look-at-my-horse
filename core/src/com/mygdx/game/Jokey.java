@@ -9,7 +9,7 @@ public class Jokey {
     private boolean isPlayer;
     private Sprite sprite;
     private MyGdxGame game;
-    private int move = 1;
+    private int move = 0;
     private float x, y;
     private Texture texture;
     private int w, h;
@@ -19,8 +19,8 @@ public class Jokey {
         this.texture = texture;
         this.x = x;
         this.y = y;
-        w = 2800 / 7;
-        h = 250;
+        w = 1120 / 7;
+        h = 100;
         sprite = new Sprite(new TextureRegion(texture, 0, 0, w, h));
     }
 
