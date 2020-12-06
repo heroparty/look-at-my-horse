@@ -64,7 +64,9 @@ public class Jokey {
     }
 
     void vanish(){
-        sprite.setRegion(new TextureRegion(texture, step * w, h, w, h));
+        x = -100;
+        y = -100;
+        speed = 0;
     }
 
     void botSpeed(){

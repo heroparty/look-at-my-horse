@@ -81,10 +81,15 @@ public class MyGdxGame extends ApplicationAdapter {
             j.vanish();
         }
 
+        music.stop();
         if(jokey.isPlayer){
             background = new Texture("win.png");
+            music = Gdx.audio.newMusic(Gdx.files.internal("win.wav"));
+            music.play();
         }else{
             background = new Texture("lose.png");
+            music = Gdx.audio.newMusic(Gdx.files.internal("lose.wav"));
+            music.play();
         }
     }
 

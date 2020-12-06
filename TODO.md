@@ -10,11 +10,4 @@
 * [x] habilitar o click como oq move o cavalo para frente
 * [x] a velocidade do cavalo deve sempre estar regredindo, mas nunca menos que 0.5
 * [x] os outros cavalos devem se mover numa velocidade aleatória
-* [ ] o jogador ganha quando ganha
-
-POSIÇÕES:
-
-player: 80, 440;
-horse1: 80, 510;
-horse2: 80, 580;
-horse3: 80, 650;
+* [x] o jogador ganha quando atinge a linha de chegada
