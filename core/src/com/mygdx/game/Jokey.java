@@ -1,12 +1,14 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Jokey {
     private int speed = 2;
-    private boolean isPlayer;
+    public boolean isPlayer;
     private Sprite sprite;
     private MyGdxGame game;
     private int move = 0;
@@ -17,9 +19,10 @@ public class Jokey {
     private static final int animationMax = 4;
     private int animation;
 
-    Jokey(float x, float y, Texture texture, MyGdxGame game) {
+    Jokey(float x, float y, boolean isPlayer, Texture texture, MyGdxGame game) {
         this.game = game;
         this.texture = texture;
+        this.isPlayer = isPlayer;
         this.x = x;
         this.y = y;
         w = 1120 / 7;
@@ -45,6 +48,12 @@ public class Jokey {
     void run() {
         x += speed;
         updateAnimation();
+    }
+
+    void speed() {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            speed += 1;
+        }
     }
 
     void draw() {
