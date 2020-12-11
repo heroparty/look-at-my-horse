@@ -42,12 +42,6 @@ public class Jokey {
         }
     }
 
-    private boolean outOfScreen() {
-        float px = x - game.x;
-        float py = y - game.y;
-        return (px > game.w) || (px + w < 0) || (py > game.h) || (py + h < 0);
-    }
-
     void run() {
         x += speed;
         updateAnimation();
@@ -74,7 +68,6 @@ public class Jokey {
     }
 
     void draw() {
-        if (outOfScreen()) return;
         sprite.setRegion(new TextureRegion(texture, step * w, 0, w, h));
         sprite.setPosition(x - game.x, y - game.y);
         sprite.draw(game.batch);
